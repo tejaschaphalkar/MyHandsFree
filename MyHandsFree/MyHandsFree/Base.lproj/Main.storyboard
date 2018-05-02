@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Speech DetectionVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="SpeechDetectionVC" customModule="MyHandsFree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tRi-n3-1om">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWF-gB-kr2">
+                                <rect key="frame" x="162" y="308" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6Cs-dr-nqr"/>
+                                    <constraint firstAttribute="width" constant="50" id="Ca4-Ed-6We"/>
+                                </constraints>
+                                <state key="normal" image="microphone_black"/>
+                                <connections>
+                                    <action selector="microPhoneTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yKa-t4-MOa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fm-Nr-FKx">
+                                <rect key="frame" x="20" y="408" width="335" height="0.0"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5fm-Nr-FKx" secondAttribute="trailing" constant="20" id="CVA-ht-gJj"/>
+                            <constraint firstItem="5fm-Nr-FKx" firstAttribute="top" secondItem="yWF-gB-kr2" secondAttribute="bottom" constant="50" id="LyJ-UH-XC4"/>
+                            <constraint firstItem="5fm-Nr-FKx" firstAttribute="leading" secondItem="tRi-n3-1om" secondAttribute="leading" constant="20" id="XCe-gC-BYb"/>
+                            <constraint firstItem="yWF-gB-kr2" firstAttribute="centerX" secondItem="tRi-n3-1om" secondAttribute="centerX" id="Xbw-4u-uZf"/>
+                            <constraint firstItem="yWF-gB-kr2" firstAttribute="centerY" secondItem="tRi-n3-1om" secondAttribute="centerY" id="qHL-jN-iuc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="S75-8K-nWL"/>
+                    </view>
+                    <connections>
+                        <outlet property="detectedTextLabel" destination="5fm-Nr-FKx" id="kkM-wj-qzB"/>
+                        <outlet property="microPhoneButton" destination="yWF-gB-kr2" id="sSk-gi-Kqu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="microphone_black" width="256" height="256"/>
+    </resources>
+</document>
