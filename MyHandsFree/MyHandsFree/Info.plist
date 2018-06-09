@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<string>whatsapp</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This allows the app to provide access to the microphone.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>

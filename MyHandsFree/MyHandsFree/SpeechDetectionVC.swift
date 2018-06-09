@@ -37,21 +37,38 @@ class SpeechDetectionVC: UIViewController, SFSpeechRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestSpeechAuthorization { [weak self] (authorized) in
-            if authorized {
-                self?.requestForMicroPhoneAccess(completion: { (authorized) in
-                    if authorized {
-                        let welcomeString = "Hello there! What would you like to do?"
-                        let utterance = AVSpeechUtterance(string: welcomeString)
-                        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-                        self?.synthesizer.delegate = self
-                        // TODO: add completion for requestSpeech
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            self?.synthesizer.speak(utterance)
-                        }
-                    }
-                })
+//        requestSpeechAuthorization { [weak self] (authorized) in
+//            if authorized {
+//                self?.requestForMicroPhoneAccess(completion: { (authorized) in
+//                    if authorized {
+//                        let welcomeString = "Hello there! What would you like to do?"
+//                        let utterance = AVSpeechUtterance(string: welcomeString)
+//                        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+//                        self?.synthesizer.delegate = self
+//                        // TODO: add completion for requestSpeech
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//                            self?.synthesizer.speak(utterance)
+//                        }
+//                    }
+//                })
+//            }
+//        }
+        
+        let urlString = "whatsapp://send?text=message"
+//        "whatsapp://send?text=Message to share"
+        
+        if let urlStringEncoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            if let url = URL(string: urlStringEncoded) {
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
             }
+        }
+        
+        let sms_: String = "whatsapp://send?text=Message to share"
+        if let strURL: String = sms_.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+            let url = URL.init(string: strURL) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
     
